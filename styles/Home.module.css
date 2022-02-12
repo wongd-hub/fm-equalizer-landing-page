@@ -343,6 +343,7 @@
 .logoFooter {
   min-width: 147px;
   min-height: 32px;
+  margin-right: 2rem;
 }
 
 .footerText {
