@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 import bgDesktop from '../public/assets/bg-main-desktop.png'
 import bgMobile from '../public/assets/bg-main-mobile.png'
 import bgTablet from '../public/assets/bg-main-tablet.png'
@@ -7,11 +8,34 @@ import logoSvg from '../public/assets/logo.svg'
 import bgPattern1 from '../public/assets/bg-pattern-1.svg'
 import bgPattern2 from '../public/assets/bg-pattern-2.svg'
 import mobilePrev from '../public/assets/illustration-app.png'
-import appleIcon from '../public/assets/icon-apple.svg'
 
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [vsize, setVSize] = useState([0, 0]) // State used to track viewport size
+  const [device, setDevice] = useState('desktop')
+
+  // Listen for window resize
+  useEffect(() => {
+    setVSize([window.innerWidth, window.innerHeight])
+    window.addEventListener('resize', () => {
+      setVSize([window.innerWidth, window.innerHeight])
+    });
+    return () => window.removeEventListener('resize', () => setVSize([window.innerWidth, window.innerHeight]));
+  }, []);
+
+
+  // Change state if window is certain size
+  useEffect(() => {
+    if (vsize[0] > 768) {
+      setDevice('desktop')
+    } else if (vsize[0] > 375) {
+      setDevice('tablet')
+    } else {
+      setDevice('phone')
+    }
+  }, [vsize]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,56 +45,55 @@ export default function Home() {
         <title>Frontend Mentor | Equalizer landing page</title>
       </Head>
 
-      <Image
-        src={bgDesktop}
-        alt=""
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        placeholder="blur"
-        style={{position: 'fixed'}}
-        priority
-      />
-
+      
       <main className={styles.main}>
         <body>
           <section className={styles.landingSection}>
-            <div className={styles.landingText}>
-              <div className={styles.logo}>
-                <Image
-                  src={logoSvg}
-                  alt=""
-                />
+            <div className={styles.landingTopSection}>
+              <div className={styles.landingText}>
+                <div className={styles.logo}>
+                  <Image
+                    src={logoSvg}
+                    alt=""
+                  />
+                </div>
+                <div className={styles.landingTextContainer}>
+                  <h1 className={styles.title}>We make your music sound extraordinary.</h1>
+                  <p className={styles.landingPara}>A system audio equalizer specifically designed for Android and iOS. Freely tune the 
+                  way your music sounds with a professional grade parametric EQ & volume mixer. Control 
+                  bass, mids, treble, gain control, reverb, and more!</p>
+                </div>
               </div>
-              <div className={styles.landingTextContainer}>
-                <h1 className={styles.title}>We make your music sound extraordinary.</h1>
+              <div className={styles.adornmentContainer}>
+                {
+                  device == 'mobile' 
+                    ? (<></>) 
+                    : device == 'desktop' 
+                        ? (
+                            <Image
+                              src={bgPattern1}
+                              alt=""
+                              layout='fixed'
+                              width={312}
+                              height={468}
+                            />
+                        )
+                        : (
+                            <Image
+                              src={bgPattern1}
+                              alt=""
+                              layout='fixed'
+                              width={266.7}
+                              height={400}
+                            />
+                        )
+                }
 
-                <p className={styles.landingPara}>A system audio equalizer specifically designed for Android and iOS. Freely tune the 
-                way your music sounds with a professional grade parametric EQ & volume mixer. Control 
-                bass, mids, treble, gain control, reverb, and more!</p>
-              </div>
-
-
-            </div>
-            <div className="adornmentContainer">
-              <div className={styles.topAdornment}>
-                <Image
-                  src={bgPattern1}
-                  alt=""
-                />
               </div>
             </div>
           </section>
           <section className={styles.landingSplash}>
-            <div className={styles.mobilePreview}>
-              <div className={styles.mobilePreviewContainer}>
-                <Image
-                  src={mobilePrev}
-                  className={styles.mobilePrevImg}
-                  alt=""
-                />
-              </div>
-            </div>
+            <div className={styles.mobilePreview}></div>
             <div className={styles.buyCard}>
               <h1 className={styles.buyCardTitle}>Premium EQ</h1>
 
@@ -101,25 +124,24 @@ export default function Home() {
           </section>
 
         </body>
+        <footer className={styles.footer}>
+          <div className={styles.logoFooter}>
+            <Image
+              src={logoSvg}
+              alt=""
+            />
+          </div>
+          <div className={styles.footerText}>
+              All rights reserved © Equalizer 2021
+              Have any problems? Contact us via social media or email us at <strong className={styles.emailLink}>equalizer@example.com</strong>
+          </div>
+          <div className={styles.socials}>
+            <div className={styles.facebookIcon}></div>
+            <div className={styles.instagramIcon}></div>
+            <div className={styles.twitterIcon}></div>
+          </div>
+        </footer>
       </main>
-
-      <footer className={styles.footer}>
-        <div className={styles.logoFooter}>
-          <Image
-            src={logoSvg}
-            alt=""
-          />
-        </div>
-        <div className={styles.footerText}>
-            All rights reserved © Equalizer 2021
-            Have any problems? Contact us via social media or email us at <strong className={styles.emailLink}>equalizer@example.com</strong>
-        </div>
-        <div className={styles.socials}>
-          <div className={styles.facebookIcon}></div>
-          <div className={styles.instagramIcon}></div>
-          <div className={styles.twitterIcon}></div>
-        </div>
-      </footer>
     </div>
   )
 }
