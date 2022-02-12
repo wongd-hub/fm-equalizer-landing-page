@@ -19,7 +19,7 @@ This is a solution to the [Equalizer landing page challenge on Frontend Mentor](
 ### Links
 
 - [Solution URL](https://github.com/wongd-hub/fm-equalizer-landing-page)
-- Live Site URL: [tbd](https://your-live-site-url.com)
+- [Live Site / Vercel](https://fm-equalizer-landing-page.vercel.app)
 
 ## My process
 

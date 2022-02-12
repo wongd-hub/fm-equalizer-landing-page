@@ -1,13 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
-import bgDesktop from '../public/assets/bg-main-desktop.png'
-import bgMobile from '../public/assets/bg-main-mobile.png'
-import bgTablet from '../public/assets/bg-main-tablet.png'
-import logoSvg from '../public/assets/logo.svg'
-import bgPattern1 from '../public/assets/bg-pattern-1.svg'
-import bgPattern2 from '../public/assets/bg-pattern-2.svg'
-import mobilePrev from '../public/assets/illustration-app.png'
+import logoSvg from '../static/assets/logo.svg'
+import bgPattern1 from '../static/assets/bg-pattern-1.svg'
+import bgPattern2 from '../static/assets/bg-pattern-2.svg'
 
 import styles from '../styles/Home.module.css'
 
