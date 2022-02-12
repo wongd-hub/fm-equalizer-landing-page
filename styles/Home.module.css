@@ -1,116 +1,262 @@
-.container {
-  padding: 0 2rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+/* Top section */
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.landingSection {
+  display: grid;
+  position: relative;
+  grid-template-columns: 3fr 1fr;
 }
 
 .logo {
-  height: 1em;
+  min-width: 147px;
+  min-height: 32px;
+  padding-top: calc(64rem / 16);
+}
+
+.landingTextContainer {
+  max-width: 45rem;
+}
+
+.landingText {
+  padding-left: 11.5vw;
+}
+
+.adornmentContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topAdornment {
+  min-height: 468px;
+  min-width: 312px;
+  position: relative;
+  top: -40px;
+  float: right;
+}
+
+.title {
+  font-weight: bold;
+  font-size: calc(75rem / 16);
+  line-height: calc(75rem / 16);
+  margin-top: 8.5rem;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.landingPara {
+  font-weight: 300;
+  font-size: calc(17.7rem / 16);
+  line-height: calc(26rem / 16);
+  width: 100%;
+}
+
+/* Middle section */
+
+.landingSplash {
+  margin-top: 108px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 2fr 6fr 1fr;
+  position: relative;
+}
+
+.mobilePreview {
+  grid-area: 1 / 1 / span 2 / span 1;
+}
+
+.mobilePreviewContainer {
+  width: 100%;
+  height: auto;
+  padding-left: 38%;
+  padding-right: 20%;
+}
+
+.splashBg {
+  grid-area: 2 / 1 / span 1 / span 2;
+  z-index: -2;
+  width: 77vw;
+  height: 600px;
+  margin: 0 auto;
+  background-color: var(--dark-purple);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.midAdornment {
+  position: relative;
+  bottom: 6%;
+  z-index: -1;
+  padding-left: 30%;
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.buyCard {
+  grid-area: 2 / 2 / span 2 / span 1;
+  background-color: var(--tangerine);
+  color: var(--off-white);
+  height: fit-content;
+  width: calc(446rem / 16);
+  border-radius: 10px;
+  margin-top: 20%;
+  padding: calc(58rem / 16) calc(54rem / 16) calc(46rem / 16) calc(54rem / 16);
+}
+
+.buyCardTitle {
+  font-weight: bold;
+  font-size: calc(40rem / 16);
+  line-height: calc(52rem / 16);
+  margin-top: 0;
+}
+
+.copy {
+  font-weight: 300;
+  font-size: calc(19rem / 16);
+  line-height: calc(26rem / 16);
+  width: 333px;
+  margin-bottom: calc(39rem / 16);
+}
+
+.priceContainer {
+  display: flex;
+  margin-bottom: calc(46rem / 16);
+}
+
+.price {
+  font-size: calc(65rem / 16);
+}
+
+.priceCopy {
+  font-weight: 300;
+  font-size: calc(17.7rem / 16);
+  line-height: calc(26rem / 16);
+  padding-left: 1rem;
+  height: fit-content;
+  align-self: center;
+}
+
+.appleIcon {
+  position: relative;
+  background: url('../public/assets/icon-apple.svg') no-repeat center;
+  background-size: 100% 100%;
+  width: calc(17rem / 16);
+  height: calc(20rem / 16);
+  margin: auto 0;
+  bottom: calc(2rem / 16);
+}
+
+.androidIcon {
+  background: url('../public/assets/icon-android.svg') no-repeat center;
+  background-size: 100% 100%;
+  width: calc(17rem / 16);
+  height: calc(20rem / 16);
+  margin: auto 0;
+}
+
+.iosDl,
+.andDl {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 1rem;
+  width: calc(333rem / 16);
+  height: calc(61rem / 16);
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 2rem;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.iosDl {
+  background-color: var(--dark-purple);
+  color: var(--off-white);
+}
+
+.iosDl:hover {
+  background-color: var(--cyan);
+}
+
+.andDl {
+  background-color: var(--off-white);
+  color: black;
+}
+
+.andDl:hover {
+  background-color: var(--egg-yolk);
+}
+
+.buttonText {
+  margin: auto 0;
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+/* Footer section */
+
+.footer {
+  /* position: relative; */
+  margin: 87px 11.5vw;
+  display: flex;
+  justify-content: space-between;
 }
+
+.logoFooter {
+  min-width: 147px;
+  min-height: 32px;
+}
+
+.footerText {
+  max-width: calc(366rem / 16);
+  margin-right: 15vw;
+}
+
+.emailLink {
+  cursor: pointer;
+  transition: color 0.5s ease;
+}
+
+.emailLink:hover {
+  color: var(--tangerine);
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+}
+
+.facebookIcon,
+.instagramIcon,
+.twitterIcon {
+  position: relative;
+  background-size: 100% 100%;
+  margin: auto 0;
+  cursor: pointer;
+}
+
+.facebookIcon:hover,
+.instagramIcon:hover,
+.twitterIcon:hover {
+  /* Hack to change colour of an svg that's a background image
+      https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(50%) sepia(74%) saturate(1362%) hue-rotate(330deg) brightness(109%) contrast(96%);
+}
+
+.facebookIcon {
+  background: url('../public/assets/icon-facebook.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+}
+
+.instagramIcon {
+  background: url('../public/assets/icon-instagram.svg') no-repeat center;
+  width: 20px;
+  height: 20px;
+}
+
+.twitterIcon {
+  background: url('../public/assets/icon-twitter.svg') no-repeat center;
+  width: 20px;
+  height: 16.25px;
+}
+
